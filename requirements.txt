@@ -1,0 +1,3 @@
+# pyqlib
+fastapi
+uvicorn[standard]

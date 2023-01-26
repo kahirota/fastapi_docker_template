@@ -1,0 +1,14 @@
+version: "2.4"
+services:
+  service-proxy:
+    image: fastapi_docker_template
+    working_dir: /code
+    command: bash -c 'python -m venv /opt/workingenv; source /opt/workingenv/bin/activate; pip install -r requirements.txt && uvicorn src.main:app --host 0.0.0.0 --reload' 
+    ports:
+      - ${SERVER_PORT}:8000
+    volumes:
+      - .:/code
+      - .pyenv/lib/python${VPYTHON_VERSION}/site-packages:/opt/workingenv/lib/python${DPYTHON_VERSION}/site-packages
+    mem_limit: 512m
+    restart: "unless-stopped"
+

@@ -1,2 +1,10 @@
 # fastapi_docker_template
-fastapi docker template
+A very simple FastApi docker template
+
+```bash
+cp env .env
+python -m venv .pyenv
+rm -rf .pyenv/lib/python3.9/site-packages
+docker build -t fastapi_docker_template
+docker-compose up
+```
